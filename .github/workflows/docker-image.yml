@@ -1,3 +1,4 @@
+
 name: Docker Fullstack
 
 on:
@@ -28,6 +29,7 @@ jobs:
         with:
           context: ./STUDENTAPI-SPRINGBOOT
           file: ./STUDENTAPI-SPRINGBOOT/backend.Dockerfile
+          platforms: linux/amd64,linux/arm64
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/docker-git-actions-backend:latest
 
@@ -36,5 +38,6 @@ jobs:
         with:
           context: ./STUDENTAPI-REACT
           file: ./STUDENTAPI-REACT/frontend.Dockerfile
+          platforms: linux/amd64,linux/arm64
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/docker-git-actions-frontend:latest
